@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        @keyframes fadein{
+            0%{
+                opacity:0;
+                transform: translateY(20px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+    h1{
+        font-family: 'Montserrat', sans-serif;
+        font-size:5em;
+        animation: fadein 0.5s;
+        margin-top: 150px;
+    }
+    .card{
+        animation: fadein 0.5s;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 class="text-center">Random quote genarator</h1>
+        <div class="container my-5 text-center">
+            
+            <button @click="getNew" class="btn btn-primary">New quote</button>
+
+            <div v-show="loading" class="text-center mt-5">loading....</div>
+
+            <div class="card my-5" v-if="quote && quote.length > 0">
+                
+                <div class="card-body">
+            <blockquote>{{quote[0].quote}}</blockquote>
+            <p>{{quote[0].author}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="script.js"></script>
+</body>
+</html>
